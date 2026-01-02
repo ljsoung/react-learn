@@ -1,8 +1,8 @@
-function MyComponent({p1, p3}){
-  return (<>
-    <h2>프롭스 구조분해할당</h2>
+function MyComponent(props){
+  return(<>
+    <h2>props 객체 사용</h2>
     <p>
-      {p1}, {p3}
+      {props.p1}, {props.p2}, {props.p3}, {props.p4}
     </p>
   </>)
 }

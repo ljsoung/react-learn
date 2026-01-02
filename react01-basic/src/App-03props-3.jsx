@@ -1,8 +1,8 @@
-function MyComponent({p1, p3}){
+function MyComponent({p1, p2, p3, p4}){
   return (<>
-    <h2>프롭스 구조분해할당</h2>
+    <h2>props 구조분해할당</h2>
     <p>
-      {p1}, {p3}
+      {p1}, {p2}, {p3}, {p4}
     </p>
   </>)
 }
