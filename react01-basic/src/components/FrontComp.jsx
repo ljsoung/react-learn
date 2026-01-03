@@ -1,8 +1,8 @@
 export default function FrontComp(props){
   return (<>
-    {/* <a> 태그에 onClink 이벤트 핸들러 사용, 클릭 시 프롭스로 받은 onMyEvent1() 함수 실행 */}
-    <li><a href="/" onClick={() => {
-      props.onMyEvent1();
+    <li><a href="/" onClick={(event) => {
+      event.preventDefault();
+      props.onSetMode('front'); {/* 이벤트 처리 시 함수를 실행하며 "front"를 올려보냄 */}
     }}>프론트엔드</a></li>
     <ul>
       <li>HTML5</li>
