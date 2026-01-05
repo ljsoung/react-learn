@@ -1,41 +1,32 @@
-import FrontComp from "./components/FrontComp";
-import BackComp from "./components/BackComp";
-import { useState } from "react";
+import jqueryLogo from './assets/jquery.png'; // 이미지 임포트
 
-function App() {
-  const [mode, setMode] = useState('both'); // mode: 상태 변수, setMode: 변경 함수, useState(초기값)
-  const handleSetMode = (mode) => { // 상태 변경을 위한 함수 정의
-    setMode(mode);
+function App(){
+  const myStyle = { // 객체 형식으로 스타일 지정
+    color: "white",
+    backgroundColor: "DodgerBlue",
+    padding: "10px",
+    fontFamily: "Verdana"
   };
-  let contents = ''; // 컴포넌트 저장용 변수
-  if(mode == 'front'){
-    {/* 상태의 값에 따라 분기하여 FrontComp, BackComp 그리기 */}
-    contents = <>
-      <FrontComp onSetMode={(mode) => {
-        setMode(mode);
-      }}></FrontComp>
+  const iWidth = {maxWidth:'300px'};
+  return(
+      <>
+      <h2>React-Style</h2>
+      <ol>
+          <li style={{color: "red"}}>프론트엔드</li> {/* style 속성을 사용하는 인라인 방식 */}
+          <ul>
+              <li><img src="/img/html_css_js.png" style={iWidth} /></li> {/* public 하위의 이미지 삽입 */}
+              <li><img src={jqueryLogo} style={iWidth} /></li> {/* 임포트한 이미지 삽입 */}
+              <li><img src="http://nakja.co.kr/images/reactjs.png" style={iWidth} /></li> {/* 웹 URL을 이용한 이미지 삽입 */}
+          </ul>
+          <li className='backEnd'>백엔드</li>
+          <ul>
+              <li id='backEndSub'>Java</li> {/* id 속성은 HTML과 동일하게 사용 */}
+              <li class='warnings'>Oracle</li> {/* class 속성 사용 시 콘솔에서 경고 표시됨*/}
+              <li style={myStyle}>JSP</li> {/* 객체 형식으로 지정한 스타일을 적용 */}
+              <li>Spring Boot</li>
+          </ul>
+      </ol>
       </>
-  } else if(mode == 'back'){
-    contents = <>
-    <BackComp setMode={setMode} />
-    </>
-  }
-  else{
-    contents = <>
-      <FrontComp onSetMode = {(mode) => {
-        handleSetMode(mode); // 상태 변경을 위한 함수 실행
-      }}></FrontComp>
-      <BackComp setMode={handleSetMode} /> {/* 상태 변경을 위한 함수 실행 */}
-    </>
-  }
-  return (<>
-    <h2><a href="/" onClick={(event) => {
-      event.preventDefault();
-      setMode('both'); // React-State라는 제목을 누르면 두 컴포넌트를 모두 그림
-    }}>React-State</a></h2>
-    <ol>
-      {contents}
-    </ol>
-  </>)
+  )
 }
-export default App
+export default App;
