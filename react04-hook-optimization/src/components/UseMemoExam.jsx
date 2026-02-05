@@ -20,7 +20,10 @@ const UseMemoExam = () => { // 컴포넌트 정의
     // const checkPrime = isPrime(number);
 
     // step2 useMemo 훅을 도입한 후의 코드
-    const checkPrime = useMemo(() => isPrime(number), [number]);
+    const checkPrime = useMemo(() => {
+        return isPrime(number);
+        }, [number]);
+
     return (<>
         <h2>useMemo 사용하기</h2>
 
