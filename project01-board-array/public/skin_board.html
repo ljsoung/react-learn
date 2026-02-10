@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판 UI</title>
+    <!-- 스타일 정의: 게시판 테이블과 입력 폼의 기본 스타일 설정-->
+     <style>
+        *{
+            margin: 5px;
+        }
+        input, textarea{
+            width: 90%;
+        }
+        input[type=submit] {
+            width: 100px;
+        }
+        #boardTable tr{
+            text-align: center;
+        }
+        #boardTable th, td{
+            border: 1px solid gray;
+        }
+        #boardTable td{
+            text-align: left;
+        }
+        #boardTable td.cen{
+            text-align: center;
+        }
+        #boardTable td.subject{
+            text-align: left;
+        }
+     </style>
+</head>
+<body>
+    <header>
+        <!-- 게시판 목록: 전체 게시글의 목록을 보여주는 섹션-->
+         <h2>게시판-목록</h2>
+    </header>
+    <nav>
+        <a href="/">글쓰기</a>
+    </nav>
+    <article> <!-- 독립적으로 의미를 가지는 콘텐츠 묶음-->
+        <table id="boardTable">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>제목</th>
+                    <th>작성자</th>
+                    <th>날짜</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="cen">1</td>
+                    <td>오늘은 React 공부하는 날</td>
+                    <td class="cen">낙자쌤</td>
+                    <td class="cen">2030-05-05</td>
+                </tr>
+            </tbody>
+        </table>
+    </article>
+
+    <header>
+        <!-- 게시글 상세보기: 선택한 게시글의 상세 내용을 보여주는 섹션-->
+         <h2>게시판-열람</h2>
+    </header>
+    <nav> <!-- 페이지 이동을 위한 내비게이션 영역을 의미하는 시맨틱 태그-->
+        <a href="/">목록</a>&nbsp;
+        <a href="/">수정</a>&nbsp;
+        <a href="/">삭제</a>
+    </nav>
+    <article>
+        <table id="boardTable">
+            <colgroup> <!-- 행(tr)이 아니라 “열 기준”으로 스타일을 주기 위한 태그 -->
+                <col width="30%" /><col width="*" />
+            </colgroup>
+            <tbody>
+                <tr>
+                    <th>작성자</th>
+                    <td>성유겸</td>
+                </tr>
+                <tr>
+                    <th>제목</th>
+                    <td>오늘은 React 공부하는 날</td>
+                </tr>
+                <tr>
+                    <th>날짜</th>
+                    <td>2023-05-05</td>
+                </tr>
+                <tr>
+                    <th>내용</th>
+                    <td>열심히 해봅시당 <br>열공 합시당</td>
+                </tr>
+            </tbody>
+        </table>
+    </article>
+
+    <header>
+        <!-- 게시글 작성: 새로운 게시글을 작성하는 폼 섹션-->
+         <h2>게시판-작성</h2>
+    </header>
+    <nav>
+        <a href="/">목록</a>
+    </nav>
+    <article>
+        <form> <!-- 사용자 입력을 모아서 서버(또는 JS 로직)로 보내기 위한 입력 영역 -->
+            <table id="boardTable">
+                <tbody>
+                    <tr>
+                        <th>작성자</th>
+                        <td><input type="text" name="writer"></td>
+                    </tr>
+                    <tr>
+                        <th>제목</th>
+                        <td><input type="text" name="title"></td>
+                    </tr>
+                    <tr>
+                        <th>내용</th>
+                        <td><textarea name="contents" cols="22" rows="3"></textarea></td>
+                    </tr>
+                </tbody>
+            </table>
+            <input type="submit" value="전송">
+        </form>
+    </article>
+</body>
+</html>
